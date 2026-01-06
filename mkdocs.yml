@@ -1,0 +1,12 @@
+site_name: field-notes
+site_description: Pentest and red team notes
+docs_dir: notes
+site_dir: site
+
+theme:
+  name: readthedocs
+  language: en
+
+nav:
+  - Home: index.md
+  - Android Pentesting: android.md
