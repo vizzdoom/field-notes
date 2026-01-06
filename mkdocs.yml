@@ -4,7 +4,7 @@ docs_dir: notes
 site_dir: site
 
 theme:
-  name: readthedocs
+  name: gitbook
   language: en
 
 nav:
