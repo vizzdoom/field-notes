@@ -10,3 +10,6 @@ theme:
 nav:
   - Home: index.md
   - Android Pentesting: android.md
+
+extra_css:
+  - _assets/styles.css
