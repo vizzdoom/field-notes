@@ -1,5 +1,5 @@
-site_name: field-notes
-site_description: Pentest and red team notes
+site_name: Vizz Cyber Field Notes
+site_description: Pentester's diary
 docs_dir: notes
 site_dir: site
 
@@ -13,3 +13,4 @@ nav:
 
 extra_css:
   - _assets/styles.css
+

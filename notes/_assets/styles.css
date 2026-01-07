@@ -104,3 +104,13 @@ body::before {
   background: #0b0f14;
   border-top: 1px solid rgba(126, 249, 255, 0.12);
 }
+
+.page-inner {
+  max-width: none;
+}
+
+.book-summary nav ul.summary a[href*="mkdocs.org"],
+.book-summary nav ul.summary a[href*="github.com/GitbookIO/theme-default"] {
+  font-size: xx-small;
+  color: var(--cyber-text-muted);
+}
