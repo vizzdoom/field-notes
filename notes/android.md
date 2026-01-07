@@ -579,3 +579,35 @@ frida-ps -Uai
    -  Phone          com.google.android.dialer
    -  Photos         com.google.android.apps.photos
 ```
+
+### AF-003 Frida - Hooking a method
+
+
+
+```javascript
+// Hook a function 
+Java.perform(function() {
+	var classRef = Java.use("<package_name>.<class>");
+	classRef.<method_to_hook>.implementation = function(args) {
+		console.log("[+] Hooked a method of " + this.$className);
+		var ret_val = this.<method_to_hook>();
+		console.log("[!] Return value from " + this.$className + ": " + ret_val);
+		return ret_val; // or something else	
+	}
+});
+```
+```javascript
+// Hook a function com.mobilehackinglab.fridaone.MainActivity.generateRandomNumber
+Java.perform(function() {
+	var classRef = Java.use("com.mobilehackinglab.fridaone.MainActivity");
+	classRef.generateRandomNumber.implementation = function(args) {
+		console.log("[+] Hooked a method of " + this.$className);
+		var ret_val = this.generateRandomNumber();
+		console.log("[!] Return value from " + this.$className + ": " + ret_val);
+		return ret_val; // or something else	
+	}
+});
+```
+```bash
+frida -U -l frida-android-hook.js -f com.app
+```
