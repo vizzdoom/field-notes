@@ -525,3 +525,57 @@ adb shell settings put global http_proxy 10.10.10.57:8080
 ```
 
 ## Android Exploitation/Validation
+
+
+## Android Frida
+
+### AF-001 Run Frida Server on AVD
+
+Download frida server. For AVD you have to download **frida-server-<version>-android-x86_64.xz**:
+
+https://github.com/frida/frida/releases/download/17.5.2/frida-server-17.5.2-android-x86_64.xz
+
+Install frida-tools:
+
+```
+pip install frida-tools
+```
+
+**Always use the same server and client version!**
+
+After downloading the xz archive, extract it and save binary into your Android tools directory under the **D:\Tools\Android\frida-server** name.
+
+Next, push Frida server to the `/data/local/tmp` directory, add execute permission and run:
+
+```
+adb root && adb push D:\Tools\Android\frida-server /data/local/tmp/frida-server && adb shell "chmod 755 /data/local/tmp/frida-server && /data/local/tmp/frida-server &"
+```
+
+### AF-002 Using frida-ps
+
+```
+frida-ps -Uai
+---
+-U: Looks at devices connected by USB.
+-a: Shows all apps, not just yours.
+-i: Gives you more info like the app’s ID and name.
+---
+ PID  Name           Identifier
+----  -------------  ---------------------------------------
+2799  Contacts       com.google.android.contacts
+3111  Gmail          com.google.android.gm
+2099  Google         com.google.android.googlequicksearchbox
+1734  Messages       com.google.android.apps.messaging
+1118  SIM Toolkit    com.android.stk
+1128  Settings       com.android.settings
+   -  Calendar       com.google.android.calendar
+   -  Camera         com.android.camera2
+   -  Chrome         com.android.chrome
+   -  Clock          com.google.android.deskclock
+   -  Drive          com.google.android.apps.docs
+   -  Files          com.google.android.documentsui
+   -  Magisk         com.topjohnwu.magisk
+   -  Maps           com.google.android.apps.maps
+   -  Phone          com.google.android.dialer
+   -  Photos         com.google.android.apps.photos
+```
