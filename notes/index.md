@@ -1,11 +1,9 @@
-# field-notes
+---
+hide:
+  - navigation
+---
+# Vizz Cyber Field Notes
 
-Personal pentest and red team notes, optimized for quick scanning.
+Personal ==playbooks== for pentesting.
 
-## Scope
-- Practical playbooks, checklists, and commands.
-- Focus on reproducible steps and defensive context.
-- No client identifiers or sensitive data.
 
-## Topics
-- Android pentesting: [android.md](android.md)

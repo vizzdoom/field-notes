@@ -1,7 +1,10 @@
-Title:   My Document
-Summary: A brief description of my document.
-
+---
+hide:
+  - toc
+---
 # Android Pentesting
+
+[TOC]
 
 ## Android Reconnaissance
 
@@ -16,21 +19,9 @@ aapt dump badging .\UnCrackable-Level1.apk
 	sdkVersion:'19'
 	targetSdkVersion:'28'
 	application-label:'Uncrackable1'
-	application-icon-160:'res/mipmap-mdpi-v4/ic_launcher.png'
-	application-icon-240:'res/mipmap-hdpi-v4/ic_launcher.png'
-	application-icon-320:'res/mipmap-xhdpi-v4/ic_launcher.png'
-	application-icon-480:'res/mipmap-xxhdpi-v4/ic_launcher.png'
 	application-icon-640:'res/mipmap-xxxhdpi-v4/ic_launcher.png'
 	application: label='Uncrackable1' icon='res/mipmap-mdpi-v4/ic_launcher.png'
 	launchable-activity: name='sg.vantagepoint.uncrackable1.MainActivity'  label='Uncrackable1' icon=''
-	feature-group: label=''
-	  uses-feature: name='android.hardware.faketouch'
-	  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'
-	main
-	supports-screens: 'small' 'normal' 'large' 'xlarge'
-	supports-any-density: 'true'
-	locales: '--_--'
-	densities: '160' '240' '320' '480' '640'
 ```
 
 ### AR-002 Dump package information from runtime
@@ -39,152 +30,107 @@ aapt dump badging .\UnCrackable-Level1.apk
 adb shell pm list packages
 adb shell pm list packages -f | grep -i foodies
 adb shell dumpsys package com.example.foodies
----
-	Activity Resolver Table:
-	  Non-Data Actions:
-	      android.intent.action.MAIN:
-	        797c103 com.example.foodies/.MainActivity filter 3be4880
-	          Action: "android.intent.action.MAIN"
-	          Category: "android.intent.category.LAUNCHER"
-	
-	Receiver Resolver Table:
-	  Non-Data Actions:
-	      androidx.profileinstaller.action.SAVE_PROFILE:
-	        51c0eb9 com.example.foodies/androidx.profileinstaller.ProfileInstallReceiver filter eff6cac
-	          Action: "androidx.profileinstaller.action.SAVE_PROFILE"
-	      androidx.profileinstaller.action.INSTALL_PROFILE:
-	        51c0eb9 com.example.foodies/androidx.profileinstaller.ProfileInstallReceiver filter 584d2fe
-	          Action: "androidx.profileinstaller.action.INSTALL_PROFILE"
-	      androidx.profileinstaller.action.SKIP_FILE:
-	        51c0eb9 com.example.foodies/androidx.profileinstaller.ProfileInstallReceiver filter 4b6a5f
-	          Action: "androidx.profileinstaller.action.SKIP_FILE"
-	      androidx.profileinstaller.action.BENCHMARK_OPERATION:
-	        51c0eb9 com.example.foodies/androidx.profileinstaller.ProfileInstallReceiver filter ee5dd75
-	          Action: "androidx.profileinstaller.action.BENCHMARK_OPERATION"
+```
+```
+Activity Resolver Table:
+	Non-Data Actions:
+		android.intent.action.MAIN:
+		797c103 com.example.foodies/.MainActivity filter 3be4880
+			Action: "android.intent.action.MAIN"
+			Category: "android.intent.category.LAUNCHER"
 
-	Domain verification status:
-	
-	Permissions:
-	  Permission [com.example.foodies.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION] (fefb99b):
-	    sourcePackage=com.example.foodies
-	    uid=10197 gids=[] type=0 prot=signature
-	    perm=PermissionInfo{c817138 com.example.foodies.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION}
-	    flags=0x0
-	
-	Registered ContentProviders:
-	  com.example.foodies/androidx.startup.InitializationProvider:
-	    Provider{cec7511 com.example.foodies/androidx.startup.InitializationProvider}
-	
-	ContentProvider Authorities:
-	  [com.example.foodies.androidx-startup]:
-	    Provider{cec7511 com.example.foodies/androidx.startup.InitializationProvider}
-	      applicationInfo=ApplicationInfo{87f3676 com.example.foodies}
-	
-	Key Set Manager:
-	  [com.example.foodies]
-	      Signing KeySets: 59
-	
-	Packages:
-	  Package [com.example.foodies] (292ed35):
-	    appId=10197
-	    pkg=Package{6065477 com.example.foodies}
-	    codePath=/data/app/~~oZ0lNhDdkIp2NaWMhGczgw==/com.example.foodies-ttByxQb49HI7GiOb62XhPQ==
-	    resourcePath=/data/app/~~oZ0lNhDdkIp2NaWMhGczgw==/com.example.foodies-ttByxQb49HI7GiOb62XhPQ==
-	    legacyNativeLibraryDir=/data/app/~~oZ0lNhDdkIp2NaWMhGczgw==/com.example.foodies-ttByxQb49HI7GiOb62XhPQ==/lib
-	    extractNativeLibs=false
-	    primaryCpuAbi=null
-	    secondaryCpuAbi=null
-	    cpuAbiOverride=null
-	    versionCode=1 minSdk=31 targetSdk=34
-	    minExtensionVersions=[]
-	    versionName=1.0
-	    usesNonSdkApi=false
-	    splits=[base]
-	    apkSigningVersion=2
-	    flags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
-	    privateFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION ALLOW_AUDIO_PLAYBACK_CAPTURE PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
-	    forceQueryable=false
-	    dataDir=/data/user/0/com.example.foodies
-	    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
-	    timeStamp=2025-05-22 04:17:19
-	    lastUpdateTime=2025-05-22 04:17:19
-	    installerPackageName=null
-	    installerPackageUid=-1
-	    initiatingPackageName=com.android.shell
-	    originatingPackageName=null
-	    packageSource=1
-	    appMetadataFilePath=null
-	    signatures=PackageSignatures{97868e4 version:2, signatures:[522e4361], past signatures:[]}
-	    installPermissionsFixed=true
-	    pkgFlags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
-	    privatePkgFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION ALLOW_AUDIO_PLAYBACK_CAPTURE PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
-	    apexModuleName=null
-	    declared permissions:
-	      com.example.foodies.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: prot=signature
-	    requested permissions:
-	      android.permission.ACCESS_COARSE_LOCATION
-	      android.permission.ACCESS_FINE_LOCATION
-	      android.permission.READ_CONTACTS
-	      android.permission.RECORD_AUDIO
-	      android.permission.CALL_PHONE
-	      android.permission.CAMERA
-	      android.permission.SEND_SMS
-	      android.permission.READ_SMS
-	      android.permission.BLUETOOTH
-	      android.permission.READ_CALENDAR
-	      com.example.foodies.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-	    install permissions:
-	      com.example.foodies.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
-	      android.permission.BLUETOOTH: granted=true
-	    User 0: ceDataInode=344151 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false
-	      installReason=0
-	      firstInstallTime=2025-05-22 04:17:19
-	      uninstallReason=0
-	      overlay paths:
-	        /product/overlay/EmulationPixel3a/EmulationPixel3aOverlay.apk
-	        /product/overlay/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
-	      legacy overlay paths:
-	        /product/overlay/EmulationPixel3a/EmulationPixel3aOverlay.apk
-	        /product/overlay/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
-	      gids=[3002]
-	      runtime permissions:
-	        android.permission.READ_SMS: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT]
-	        android.permission.READ_CALENDAR: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
-	        android.permission.ACCESS_FINE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
-	        android.permission.ACCESS_COARSE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
-	        android.permission.SEND_SMS: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT]
-	        android.permission.CALL_PHONE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
-	        android.permission.CAMERA: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
-	        android.permission.RECORD_AUDIO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
-	        android.permission.READ_CONTACTS: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+Receiver Resolver Table:
+	Non-Data Actions:
+		androidx.profileinstaller.action.SAVE_PROFILE:
+		51c0eb9 com.example.foodies/androidx.profileinstaller.ProfileInstallReceiver filter eff6cac
+			Action: "androidx.profileinstaller.action.SAVE_PROFILE"
+		...
 
-	Queries:
-	  system apps queryable: false
-	  queries via forceQueryable:
-	  queries via package name:
-	  queries via component:
-	    com.google.android.settings.intelligence:
-	      com.example.foodies
-	  queryable via interaction:
-	    User 0:
-	      [com.android.wallpaperbackup,com.android.localtransport,android,com.android.providers.settings,com.android.server.telecom,com.android.inputdevices,com.android.location.fused,com.android.dynsystem,com.android.emulator.multidisplay,com.android.settings,com.android.keychain]:
-	        com.example.foodies
-	      [com.google.android.gsf,com.google.android.gms]:
-	        com.example.foodies
-	      com.google.android.permissioncontroller:
-	        com.example.foodies
-	  queryable via uses-library:
-	
-	Dexopt state:
-	  [com.example.foodies]
-	    path: /data/app/~~oZ0lNhDdkIp2NaWMhGczgw==/com.example.foodies-ttByxQb49HI7GiOb62XhPQ==/base.apk
-	      x86_64: [status=run-from-apk] [reason=unknown] [primary-abi]
-	        [location is error]
-	
-	Compiler stats:
-	  [com.example.foodies]
-	    (No recorded stats)
+Domain verification status:
 
+Permissions:
+	Permission [com.example.foodies.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION] (fefb99b):
+	sourcePackage=com.example.foodies
+	uid=10197 gids=[] type=0 prot=signature
+	perm=PermissionInfo{c817138 com.example.foodies.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION}
+	flags=0x0
+
+Registered ContentProviders:
+	com.example.foodies/androidx.startup.InitializationProvider:
+	Provider{cec7511 com.example.foodies/androidx.startup.InitializationProvider}
+
+Packages:
+	Package [com.example.foodies] (292ed35):
+	appId=10197
+	pkg=Package{6065477 com.example.foodies}
+	codePath=/data/app/~~oZ0lNhDdkIp2NaWMhGczgw==/com.example.foodies-ttByxQb49HI7GiOb62XhPQ==
+	resourcePath=/data/app/~~oZ0lNhDdkIp2NaWMhGczgw==/com.example.foodies-ttByxQb49HI7GiOb62XhPQ==
+	legacyNativeLibraryDir=/data/app/~~oZ0lNhDdkIp2NaWMhGczgw==/com.example.foodies-ttByxQb49HI7GiOb62XhPQ==/lib
+	extractNativeLibs=false
+	versionCode=1 minSdk=31 targetSdk=34
+	minExtensionVersions=[]
+	versionName=1.0
+	usesNonSdkApi=false
+	splits=[base]
+	apkSigningVersion=2
+	flags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+	privateFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION ALLOW_AUDIO_PLAYBACK_CAPTURE PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+	forceQueryable=false
+	dataDir=/data/user/0/com.example.foodies
+	supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+	timeStamp=2025-05-22 04:17:19
+	lastUpdateTime=2025-05-22 04:17:19
+	installerPackageName=null
+	installerPackageUid=-1
+	initiatingPackageName=com.android.shell
+	...
+	declared permissions:
+		com.example.foodies.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: prot=signature
+	requested permissions:
+		android.permission.ACCESS_COARSE_LOCATION
+		android.permission.ACCESS_FINE_LOCATION
+		android.permission.READ_CONTACTS
+		android.permission.RECORD_AUDIO
+		android.permission.CALL_PHONE
+		android.permission.CAMERA
+		android.permission.SEND_SMS
+		android.permission.READ_SMS
+		android.permission.BLUETOOTH
+		android.permission.READ_CALENDAR
+		com.example.foodies.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+	install permissions:
+		com.example.foodies.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+		android.permission.BLUETOOTH: granted=true
+	User 0: ceDataInode=344151 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false
+		installReason=0
+		firstInstallTime=2025-05-22 04:17:19
+		uninstallReason=0
+		overlay paths:
+		/product/overlay/EmulationPixel3a/EmulationPixel3aOverlay.apk
+		/product/overlay/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
+		legacy overlay paths:
+		/product/overlay/EmulationPixel3a/EmulationPixel3aOverlay.apk
+		/product/overlay/NavigationBarModeGestural/NavigationBarModeGesturalOverlay.apk
+		gids=[3002]
+		runtime permissions:
+		android.permission.READ_SMS: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT]
+		android.permission.READ_CALENDAR: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+		android.permission.ACCESS_FINE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+		android.permission.ACCESS_COARSE_LOCATION: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+		android.permission.SEND_SMS: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED|RESTRICTION_INSTALLER_EXEMPT]
+		android.permission.CALL_PHONE: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+		android.permission.CAMERA: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+		android.permission.RECORD_AUDIO: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+		android.permission.READ_CONTACTS: granted=false, flags=[ USER_SENSITIVE_WHEN_GRANTED|USER_SENSITIVE_WHEN_DENIED]
+
+Queries:
+	system apps queryable: false
+	...
+
+Dexopt state:
+	[com.example.foodies]
+	path: /data/app/~~oZ0lNhDdkIp2NaWMhGczgw==/com.example.foodies-ttByxQb49HI7GiOb62XhPQ==/base.apk
+		x86_64: [status=run-from-apk] [reason=unknown] [primary-abi]
 ```
 
 ### AR-003 Acquire APK from the device
@@ -194,12 +140,14 @@ Locate an apk on a device by a package name, and pull it to the host using adb.
 ```bash
 adb shell pm list packages -f | grep -i crackme
 adb shell pm list packages -f | grep -V android
----
+```
+```
 	package:/data/app/~~oZ0lNhDdkIp2NaWMhGczgw==/com.example.foodies-ttByxQb49HI7GiOb62XhPQ==/base.apk=com.example.foodies
 	package:/data/app/~~_im0vbmG2BJ4FJQEdVCz3g==/com.example.frenzy-viauWKyuiqJescyI2uFSpA==/base.apk=com.example.frenzy
 	package:/product/app/PrebuiltGoogleTelemetryTvp/PrebuiltGoogleTelemetryTvp.apk=com.google.mainline.telemetry
 	package:/product/app/PrebuiltGoogleAdservicesTvp/PrebuiltGoogleAdservicesTvp.apk=com.google.mainline.adservices
----
+```
+```bash
 adb pull /data/app/~~oZ0lNhDdkIp2NaWMhGczgw==/com.example.foodies-ttByxQb49HI7GiOb62XhPQ==/base.apk .
 ```
 
@@ -380,7 +328,8 @@ adb forward tcp:55555 jdwp:14827
 
 ```bash
 jdb -connect com.sun.jdi.SocketAttach:hostname=localhost,port=55555
---
+```
+```
 Set uncaught java.lang.Throwable
 Set deferred uncaught java.lang.Throwable
 Initializing jdb ...
@@ -406,90 +355,7 @@ dump <expr>               -- print all object information
 eval <expr>               -- evaluate expression (same as print)
 set <lvalue> = <expr>     -- assign new value to field/variable/array element
 locals                    -- print all local variables in current stack frame
-
-classes                   -- list currently known classes
-class <class id>          -- show details of named class
-methods <class id>        -- list a class's methods
-fields <class id>         -- list a class's fields
-
-threadgroups              -- list threadgroups
-threadgroup <name>        -- set current threadgroup
-
-stop [go|thread] [<thread_id>] <at|in> <location>
-                          -- set a breakpoint
-                          -- if no options are given, the current list of breakpoints is printed
-                          -- if "go" is specified, immediately resume after stopping
-                          -- if "thread" is specified, only suspend the thread we stop in
-                          -- if neither "go" nor "thread" are specified, suspend all threads
-                          -- if an integer <thread_id> is specified, only stop in the specified thread
-                          -- "at" and "in" have the same meaning
-                          -- <location> can either be a line number or a method:
-                          --   <class_id>:<line_number>
-                          --   <class_id>.<method>[(argument_type,...)]
-clear <class id>.<method>[(argument_type,...)]
-                          -- clear a breakpoint in a method
-clear <class id>:<line>   -- clear a breakpoint at a line
-clear                     -- list breakpoints
-catch [uncaught|caught|all] <class id>|<class pattern>
-                          -- break when specified exception occurs
-ignore [uncaught|caught|all] <class id>|<class pattern>
-                          -- cancel 'catch' for the specified exception
-watch [access|all] <class id>.<field name>
-                          -- watch access/modifications to a field
-unwatch [access|all] <class id>.<field name>
-                          -- discontinue watching access/modifications to a field
-trace [go] methods [thread]
-                          -- trace method entries and exits.
-                          -- All threads are suspended unless 'go' is specified
-trace [go] method exit | exits [thread]
-                          -- trace the current method's exit, or all methods' exits
-                          -- All threads are suspended unless 'go' is specified
-untrace [methods]         -- stop tracing method entrys and/or exits
-step                      -- execute current line
-step up                   -- execute until the current method returns to its caller
-stepi                     -- execute current instruction
-next                      -- step one line (step OVER calls)
-cont                      -- continue execution from breakpoint
-
-list [line number|method] -- print source code
-use (or sourcepath) [source file path]
-                          -- display or change the source path
-exclude [<class pattern>, ... | "none"]
-                          -- do not report step or method events for specified classes
-classpath                 -- print classpath info from target VM
-
-monitor <command>         -- execute command each time the program stops
-monitor                   -- list monitors
-unmonitor <monitor#>      -- delete a monitor
-read <filename>           -- read and execute a command file
-
-lock <expr>               -- print lock info for an object
-threadlocks [thread id]   -- print lock info for a thread
-
-pop                       -- pop the stack through and including the current frame
-reenter                   -- same as pop, but current frame is reentered
-redefine <class id> <class file name>
-                          -- redefine the code for a class
-
-disablegc <expr>          -- prevent garbage collection of an object
-enablegc <expr>           -- permit garbage collection of an object
-
-!!                        -- repeat last command
-<n> <command>             -- repeat command n times
-# <command>               -- discard (no-op)
-help (or ?)               -- list commands
-dbgtrace [flag]           -- same as dbgtrace command line option
-version                   -- print version information
-exit (or quit)            -- exit debugger
-
-<class id>: a full class name with package qualifiers
-<class pattern>: a class name with a leading or trailing wildcard ('*')
-<thread id>: thread number as reported in the 'threads' command
-<expr>: a Java(TM) Programming Language expression.
-Most common syntax is supported.
-
-Startup commands can be placed in either "jdb.ini" or ".jdbrc"
-in user.home or user.dir
+...
 ```
 
 We successfully attached jdb to the running process. Hence, debugging is activated.
@@ -555,7 +421,8 @@ adb root && adb push D:\Tools\Android\frida-server /data/local/tmp/frida-server 
 
 ```
 frida-ps -Uai
----
+```
+```
 -U: Looks at devices connected by USB.
 -a: Shows all apps, not just yours.
 -i: Gives you more info like the app’s ID and name.
@@ -582,9 +449,7 @@ frida-ps -Uai
 
 ### AF-003 Frida - Hooking a method
 
-
-
-```javascript
+``` javascript
 // Hook a function 
 Java.perform(function() {
 	var classRef = Java.use("<package_name>.<class>");
@@ -596,7 +461,7 @@ Java.perform(function() {
 	}
 });
 ```
-```javascript
+``` javascript
 // Hook a function com.mobilehackinglab.fridaone.MainActivity.generateRandomNumber
 Java.perform(function() {
 	var classRef = Java.use("com.mobilehackinglab.fridaone.MainActivity");
@@ -608,6 +473,10 @@ Java.perform(function() {
 	}
 });
 ```
-```bash
+``` bash
 frida -U -l frida-android-hook.js -f com.app
 ```
+
+!!! note
+	nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+	massa, nec semper lorem quam in massa.

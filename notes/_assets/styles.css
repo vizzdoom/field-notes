@@ -1,116 +1,33 @@
-@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600&family=Space+Mono:wght@400;700&display=swap");
-
-:root {
-  --cyber-bg-0: #0b0f14;
-  --cyber-bg-1: #0f1420;
-  --cyber-bg-2: #0f1b23;
-  --cyber-accent-cyan: #7ef9ff;
-  --cyber-accent-pink: #ff7ad9;
-  --cyber-accent-green: #b8ffb3;
-  --cyber-accent-yellow: #fff0a8;
-  --cyber-text: #e6eef7;
-  --cyber-text-muted: #b7c6d8;
-  --cyber-grid: rgba(126, 249, 255, 0.06);
-
-  --md-primary-fg-color: #0b0f14;
-  --md-primary-fg-color--light: #1a2330;
-  --md-primary-fg-color--dark: #0b0f14;
-  --md-accent-fg-color: #7ef9ff;
-  --md-accent-fg-color--transparent: rgba(126, 249, 255, 0.12);
-  --md-default-bg-color: #0b0f14;
-  --md-default-fg-color: #e6eef7;
-  --md-default-fg-color--light: #b7c6d8;
-  --md-typeset-a-color: #7ef9ff;
-  --md-code-bg-color: #101622;
-  --md-code-fg-color: #e6f1ff;
+.md-grid {
+  max-width: 1880px;;
 }
 
-body {
-  font-family: "Chakra Petch", "Space Mono", "IBM Plex Mono", "Fira Code", monospace;
-  background: radial-gradient(1200px 600px at 10% -10%, #172433 0%, transparent 60%),
-    radial-gradient(900px 700px at 90% -20%, #1b2b3a 0%, transparent 55%),
-    linear-gradient(180deg, var(--cyber-bg-1), var(--cyber-bg-0));
-  color: var(--cyber-text);
+.md-nav {
+  /* font-size: .7rem; */
+  font-size: .65rem;
+
+  /* line-height: 1.3; */
+  line-height: 1.275;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    repeating-linear-gradient(0deg, transparent 0 24px, var(--cyber-grid) 24px 25px),
-    repeating-linear-gradient(90deg, transparent 0 24px, var(--cyber-grid) 24px 25px);
-  opacity: 0.25;
-  pointer-events: none;
-  z-index: -1;
+.admonition-title {
+  line-height: 1.6;
 }
 
-.md-header,
-.md-tabs {
-  background: linear-gradient(90deg, #0b0f14 0%, #13202a 50%, #0b0f14 100%);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+.md-typeset {
+  /* line-height: 1.6; */
+  line-height: 1.0;
+  
+  /* font-size: .8rem; */
+  font-size: .7rem;
 }
 
-.md-header__title,
-.md-header__topic,
-.md-tabs__link {
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+code {
+  /* font-size: .85em; */
+  font-size: .8em !important;
 }
 
-.md-tabs__link--active,
-.md-nav__link--active {
-  color: var(--cyber-accent-cyan);
-  text-shadow: 0 0 12px rgba(126, 249, 255, 0.35);
-}
-
-.md-typeset h1,
-.md-typeset h2,
-.md-typeset h3 {
-  text-shadow: 0 0 16px rgba(255, 122, 217, 0.2);
-}
-
-.md-typeset a:hover {
-  color: var(--cyber-accent-pink);
-}
-
-.md-typeset code {
-  background-color: var(--md-code-bg-color);
-  color: var(--md-code-fg-color);
-  border: 1px solid rgba(126, 249, 255, 0.18);
-}
-
-.md-typeset pre {
-  background: linear-gradient(135deg, #0e1522, #0c1119);
-  border: 1px solid rgba(126, 249, 255, 0.18);
-  box-shadow: inset 0 0 0 1px rgba(255, 122, 217, 0.06);
-}
-
-.md-typeset blockquote {
-  border-left: 3px solid var(--cyber-accent-pink);
-  background: rgba(255, 122, 217, 0.06);
-}
-
-.md-typeset table:not([class]) th {
-  background: rgba(126, 249, 255, 0.08);
-}
-
-.md-search__input {
-  border: 1px solid rgba(126, 249, 255, 0.35);
-  background: #0e141d;
-}
-
-.md-footer {
-  background: #0b0f14;
-  border-top: 1px solid rgba(126, 249, 255, 0.12);
-}
-
-.page-inner {
-  max-width: none;
-}
-
-.book-summary nav ul.summary a[href*="mkdocs.org"],
-.book-summary nav ul.summary a[href*="github.com/GitbookIO/theme-default"] {
-  font-size: xx-small;
-  color: var(--cyber-text-muted);
+h1, h2, h3, h4, h5, h6 {
+  /* color: var(--md-typeset-a-color) !important; */
+  font-weight: 800 !important;
 }

@@ -4,8 +4,40 @@ docs_dir: notes
 site_dir: site
 
 theme:
-  name: gitbook
+  name: material
   language: en
+  icon:
+    logo: simple/circuitverse
+  custom_dir: overrides
+  features:
+    # - header.autohide
+    - navigation.sections
+    - navigation.path
+    - navigation.top
+    - toc.follow
+    - toc.integrate
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+  palette:
+    scheme: slate
+    primary: pink
+    accent: yellow
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/vizzdoom
+      name: vizz on GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/vizzdoom/
+      name: vizz on LinkedIn
+
+copyright: 
+  Adrian <em>`Vizz`</em> Michalczyk
+
+repo_url: https://github.com/vizzdoom/field-notes
 
 nav:
   - Home: index.md
@@ -14,3 +46,22 @@ nav:
 extra_css:
   - _assets/styles.css
 
+extra_javascript:
+  - _assets/scripts.js
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - fenced_code
+  - tables
+  - smarty
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - admonition
+  - codehilite:
+      guess_lang: false
+      use_pygments: true
+      
+plugins:
+  - search
